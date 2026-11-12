@@ -1,0 +1,31 @@
+{
+  "name": "fable-5-2-film",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Claude Fable 5.2 — 30s motion graphics film, built entirely in code with Remotion.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Fable52 out/fable-5-2.mp4 --codec=h264 --crf=16 --pixel-format=yuv420p",
+    "render:proxy": "remotion render src/index.ts Fable52 out/proxy.mp4 --codec=h264 --crf=28 --scale=0.5",
+    "still": "remotion still src/index.ts Fable52 out/still.png --overwrite",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "@remotion/google-fonts": "4.0.542",
+    "@remotion/motion-blur": "4.0.542",
+    "@remotion/noise": "4.0.542",
+    "@remotion/paths": "4.0.542",
+    "@remotion/shapes": "4.0.542",
+    "@remotion/transitions": "4.0.542",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

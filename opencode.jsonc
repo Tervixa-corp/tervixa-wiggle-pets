@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "providers": {
+    "coarena": {
+      "name": "Coarena",
+      "env": ["COARENA_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://coarena.ai/api/v1"
+      },
+      "models": {
+        "claude-fable-5-2": {
+          "name": "Claude Fable 5.2",
+          "modelID": "claude-fable-5-2"
+        }
+      }
+    }
+  }
+}
