@@ -1,0 +1,30 @@
+# Rust
+/target/
+**/target/
+Cargo.lock.orig
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Wiggle local state
+.wiggle/snapshots/
+.wiggle/memory/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Env & secrets
+.env
+.env.*
+
+# Build scratch
+out/tmp/
+*.log
+
+# build deps & caches
+node_modules/
+
