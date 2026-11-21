@@ -1,0 +1,16 @@
+[package]
+name = "wiggle-browser"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Tervixa Wiggle agentic browser controller: CDP automation, compact DOM accessibility trees, console and network capture"
+
+[dependencies]
+tokio = { workspace = true }
+futures = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+reqwest = { workspace = true }
+thiserror = { workspace = true }
+tokio-tungstenite = { workspace = true }

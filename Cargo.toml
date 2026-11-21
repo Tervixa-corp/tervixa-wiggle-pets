@@ -1,0 +1,52 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/wiggle-core",
+    "crates/wiggle-memory",
+    "crates/wiggle-browser",
+    "crates/wiggle-cli",
+    "crates/wiggle-desktop",
+]
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+authors = ["Tervixa Corporation <forge@tervixa.in>"]
+repository = "https://github.com/tervixa/wiggle"
+homepage = "https://tervixa.in"
+
+[workspace.dependencies]
+wiggle-core = { path = "crates/wiggle-core" }
+wiggle-memory = { path = "crates/wiggle-memory" }
+wiggle-browser = { path = "crates/wiggle-browser" }
+
+tokio = { version = "1", features = [
+    "rt-multi-thread", "macros", "sync", "time", "process", "io-util", "fs", "net",
+] }
+futures = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+reqwest = { version = "0.12", features = ["json", "stream"] }
+bytes = "1"
+thiserror = "2"
+regex = "1"
+sha2 = "0.10"
+base64 = "0.22"
+hex = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
+rusqlite = { version = "0.43", features = ["bundled"] }
+tokio-tungstenite = "0.26"
+flate2 = "1"
+tar = "0.4"
+clap = { version = "4", features = ["derive"] }
+ratatui = "0.29"
+crossterm = "0.28"
+tauri = "2"
+tauri-build = "2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

@@ -1,0 +1,23 @@
+[package]
+name = "wiggle-desktop"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Tervixa Wiggle native desktop shell (Tauri v2)"
+
+[build-dependencies]
+tauri-build = { workspace = true, features = [] }
+
+[dependencies]
+wiggle-core = { workspace = true }
+wiggle-memory = { workspace = true }
+tauri = { workspace = true, features = [] }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+
+[features]
+# Tauri's custom-protocol feature is required for production builds.
+custom-protocol = ["tauri/custom-protocol"]

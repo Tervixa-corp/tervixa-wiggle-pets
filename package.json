@@ -1,0 +1,19 @@
+{
+  "name": "tervixa-wiggle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tervixa Wiggle - autonomous AI software engineering agent (CLI + native desktop) by Tervixa Corporation",
+  "license": "MIT",
+  "scripts": {
+    "ui:dev": "pnpm --dir apps/desktop-ui dev",
+    "ui:build": "pnpm --dir apps/desktop-ui build",
+    "ui:check": "pnpm --dir apps/desktop-ui check",
+    "core:check": "cargo check --workspace --all-targets",
+    "core:test": "cargo test --workspace",
+    "desktop:dev": "cargo run -p wiggle-desktop",
+    "release": "bash scripts/package-releases.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

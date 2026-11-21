@@ -1,0 +1,22 @@
+[package]
+name = "wiggle-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "The wiggle command: standalone CLI/TUI for the Tervixa Wiggle agent"
+
+[[bin]]
+name = "wiggle"
+path = "src/main.rs"
+
+[dependencies]
+wiggle-core = { workspace = true }
+wiggle-memory = { workspace = true }
+tokio = { workspace = true }
+futures = { workspace = true }
+serde_json = { workspace = true }
+clap = { workspace = true }
+ratatui = { workspace = true }
+crossterm = { workspace = true }
+chrono = { workspace = true }
