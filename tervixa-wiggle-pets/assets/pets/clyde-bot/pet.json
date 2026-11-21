@@ -1,0 +1,29 @@
+{
+    "id": "clyde-bot",
+    "name": "Clyde",
+    "kind": "procedural",
+    "author": "Tervixa Corporation",
+    "license": "MIT",
+    "source": "inspired by Clyde (MIT), original artwork (c) Tervixa Forge",
+    "style": "bot",
+    "body": "#7C4DFF",
+    "shade": "#4A2BB5",
+    "eye": "#FFFFFF",
+    "accent": "#58B06B",
+    "description": "Sleek violet pixel companion bot with a calm status LED",
+    "size": [36, 40],
+    "scale": 2,
+    "bubble_anchor": [0.5, 0],
+    "ground_offset": 8,
+    "states": {
+        "idle": { "kind": "procedural", "procedural": { "style": "bot", "pose": "idle" } },
+        "thinking": { "kind": "procedural", "procedural": { "style": "bot", "pose": "thinking" } },
+        "working": { "kind": "procedural", "procedural": { "style": "bot", "pose": "working" } },
+        "notification": { "kind": "procedural", "procedural": { "style": "bot", "pose": "notification" } },
+        "attention": { "kind": "procedural", "procedural": { "style": "bot", "pose": "attention" } },
+        "error": { "kind": "procedural", "procedural": { "style": "bot", "pose": "error" } },
+        "sleeping": { "kind": "procedural", "procedural": { "style": "bot", "pose": "sleeping" } },
+        "drinking_water": { "kind": "procedural", "procedural": { "style": "bot", "pose": "drinking_water" } },
+        "focus": { "kind": "procedural", "procedural": { "style": "bot", "pose": "focus" } }
+    }
+}

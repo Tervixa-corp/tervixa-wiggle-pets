@@ -31,14 +31,18 @@ these same files):
 ## Original Tervixa artwork (MIT)
 
 `cloud-nimbus`, `cloud-stormy`, `cloud-aurora`, `cloud-cotton` (the Cloud Pets
-collection) and `wiggle-bot` are procedural, canvas-rendered characters drawn
-by the app itself — original work (c) Tervixa Corporation, MIT licensed.
+collection), `wiggle-bot`, `clawd-pixel` and `clyde-bot` are procedural,
+canvas-rendered characters drawn by the app itself — original work (c) Tervixa
+Corporation, MIT licensed.
 
 ## Intentionally not bundled
 
-- Clawd on Desk / Clyde artwork: those projects are **AGPL-3** with dedicated
-  character art; we respect their licence and ship our own original
-  `wiggle-bot` companion instead. Their *architecture* (hook protocol shapes,
-  state mapping) informed our independent implementation.
+- Clawd on Desk / Clyde artwork files: those projects are **AGPL-3** with
+  dedicated character art; we respect their licence and do not copy a single
+  pixel of their assets. `clawd-pixel` and `clyde-bot` are our own original
+  procedural characters in the same *spirit* (a pixel crab supervisor and a
+  violet companion bot) — no upstream artwork, sprites or palettes were used.
+  Their *architecture* (hook protocol shapes, state mapping) informed our
+  independent implementation.
 - Third-party IP characters from other collections (Totoro-style, Clippy, etc.)
   are excluded to keep this distribution fully MIT-clean.

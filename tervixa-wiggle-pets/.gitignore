@@ -13,6 +13,9 @@ releases/*/*.AppImage
 releases/*/*.deb
 releases/*/SHA256SUMS
 
+# electron-builder staging dirs (never commit these, huge)
+releases/windows/installer/
+
 # OS / editor noise
 Thumbs.db
 .DS_Store

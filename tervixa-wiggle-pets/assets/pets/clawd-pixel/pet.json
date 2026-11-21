@@ -1,0 +1,29 @@
+{
+    "id": "clawd-pixel",
+    "name": "Clawd",
+    "kind": "procedural",
+    "author": "Tervixa Corporation",
+    "license": "MIT",
+    "source": "inspired by clawd-on-desk (MIT), original artwork (c) Tervixa Forge",
+    "style": "crab",
+    "body": "#E8623C",
+    "shade": "#A93B22",
+    "eye": "#1A1D29",
+    "accent": "#F5C542",
+    "description": "Classic pixel coding crab that supervises your AI agents (Clawd homage)",
+    "size": [48, 36],
+    "scale": 2,
+    "bubble_anchor": [0.5, 0],
+    "ground_offset": 8,
+    "states": {
+        "idle": { "kind": "procedural", "procedural": { "style": "crab", "pose": "idle" } },
+        "thinking": { "kind": "procedural", "procedural": { "style": "crab", "pose": "thinking" } },
+        "working": { "kind": "procedural", "procedural": { "style": "crab", "pose": "working" } },
+        "notification": { "kind": "procedural", "procedural": { "style": "crab", "pose": "notification" } },
+        "attention": { "kind": "procedural", "procedural": { "style": "crab", "pose": "attention" } },
+        "error": { "kind": "procedural", "procedural": { "style": "crab", "pose": "error" } },
+        "sleeping": { "kind": "procedural", "procedural": { "style": "crab", "pose": "sleeping" } },
+        "drinking_water": { "kind": "procedural", "procedural": { "style": "crab", "pose": "drinking_water" } },
+        "focus": { "kind": "procedural", "procedural": { "style": "crab", "pose": "focus" } }
+    }
+}

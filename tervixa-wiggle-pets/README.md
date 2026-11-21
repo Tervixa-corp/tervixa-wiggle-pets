@@ -24,10 +24,10 @@ A transparent always-on-top pet overlay for Windows / Linux / macOS. Your pet wa
 
 ## Features
 
-### 🐾 23 bundled pets
+### 🐾 25 bundled pets
 - **18 sprite pets** from [VS Code Pets](https://github.com/tonybaloney/vscode-pets) (MIT) — akita & shiba dogs, cats, cyber fox, Ferris crab, panda, rubber duck, snail, turtle, cockatiel, raccoon, rat, chicken, horse, monkey. Full credit in [`assets/pets/ATTRIBUTION.md`](assets/pets/ATTRIBUTION.md).
 - **Cloud Pets** — the signature original collection: Nimbus, Stormy, Aurora, Cotton. Procedurally drawn on canvas: they bob, rain code while your agent works, flash lightning on notifications, and rain droplets during hydration breaks.
-- **Wiggle Bot** — original Tervixa pixel coding companion with a status LED and waving arm.
+- **Wiggle Bot, Clawd & Clyde** — original Tervixa pixel coding companions (blue bot, orange crab supervisor, violet bot) with status LEDs, waving arms/claws and cursor-tracking eyes.
 - **GitHub Pet Explorer** — install any community pet by `user/repo` manifest URL.
 
 ### 🤖 AI agent watcher (deterministic)

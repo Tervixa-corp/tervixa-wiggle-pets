@@ -263,6 +263,7 @@ function drawProcedural(now) {
   ctx.rotate(pet.wiggle);
 
   if (pet.manifest.style === "bot") drawBot(st, t, w, h);
+  else if (pet.manifest.style === "crab") drawCrab(st, t, w, h);
   else drawCloud(st, t, w, h);
   ctx.restore();
 }
@@ -381,6 +382,88 @@ function drawCloud(st, t, w, h) {
     ctx.globalAlpha = 0.6 + 0.4 * Math.sin(t * 3);
     ctx.fillText("…", w * 0.3, -h * 0.34);
     ctx.globalAlpha = 1;
+  }
+}
+
+function drawCrab(st, t, w, h) {
+  const c = pet.manifest;
+  const body = c.body || "#E8623C";
+  const dark = c.shade || "#A93B22";
+  const eyeC = c.eye || "#1A1D29";
+  const accent = c.accent || "#F5C542";
+  const u = w / 12;
+
+  // eyestalks + eyes (track cursor)
+  ctx.fillStyle = dark;
+  ctx.fillRect(-u * 2.2, -h / 2 - u * 1.6, u * 0.7, u * 2.2);
+  ctx.fillRect(u * 1.5, -h / 2 - u * 1.6, u * 0.7, u * 2.2);
+  const ex = pet.eye.x * 0.6, ey = pet.eye.y * 0.6;
+  ctx.fillStyle = eyeC;
+  if (st === "error") {
+    drawX(-u * 1.9, -h / 2 - u * 1.8, u * 0.8);
+    drawX(u * 1.9, -h / 2 - u * 1.8, u * 0.8);
+  } else if (st === "sleeping") {
+    ctx.fillRect(-u * 2.4, -h / 2 - u * 1.7, u * 1.2, u * 0.35);
+    ctx.fillRect(u * 1.2, -h / 2 - u * 1.7, u * 1.2, u * 0.35);
+  } else {
+    for (const s of [-1, 1]) {
+      ctx.beginPath();
+      ctx.arc(s * u * 1.9 + ex, -h / 2 - u * 1.7 + ey, u * 0.75, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // shell body
+  ctx.fillStyle = body;
+  ctx.beginPath();
+  ctx.ellipse(0, -h * 0.05, w * 0.36, h * 0.34, 0, Math.PI, 0);
+  ctx.fill();
+  ctx.fillRect(-w * 0.36, -h * 0.05, w * 0.72, h * 0.3);
+  // shell sheen
+  ctx.fillStyle = "rgba(255,255,255,0.25)";
+  ctx.fillRect(-w * 0.24, -h * 0.3, w * 0.14, u * 0.6);
+
+  // legs scuttle (idle/working bob, faster when walking handled by physics wiggle)
+  ctx.fillStyle = dark;
+  const legPhase = st === "working" || st === "attention" ? t * 14 : t * 4;
+  for (const [s, i] of [[-1, 0], [-1, 1], [1, 0], [1, 1]]) {
+    const lx = s * (w * 0.3 + u * (0.4 + i * 1.1));
+    const ly = h * 0.28 + Math.abs(Math.sin(legPhase + i * Math.PI)) * u * (st === "sleeping" ? 0 : 0.6);
+    ctx.fillRect(lx - u * 0.3, ly, u * 0.6, u * 1.6);
+  }
+
+  // claws: wave on attention, pinch-type when working, limp when sleeping
+  const clawY = -h * 0.15;
+  for (const s of [-1, 1]) {
+    ctx.save();
+    ctx.translate(s * w * 0.52, clawY);
+    if (st === "attention") ctx.rotate(s * Math.sin(t * 10) * 0.5);
+    if (st === "working") ctx.rotate(s * Math.sin(t * 12 + (s > 0 ? 1 : 0)) * 0.35);
+    if (st === "sleeping") ctx.rotate(s * 0.35);
+    ctx.fillStyle = body;
+    ctx.fillRect(-u * 0.5, -u * 0.5, u * 1.9, u * 1.9);
+    // claw notch
+    ctx.fillStyle = dark;
+    ctx.fillRect(s > 0 ? u * 0.6 : -u * 1.9, -u * 0.5, u * 1.3, u * 0.55);
+    ctx.restore();
+  }
+
+  // mood bubble above shell
+  if (st === "thinking") {
+    ctx.globalAlpha = 0.5 + 0.5 * Math.abs(Math.sin(t * 3));
+    ctx.fillStyle = accent;
+    for (let i = 0; i < 3; i++) {
+      ctx.beginPath();
+      ctx.arc(u * (2 + i * 1.4), -h / 2 - u * (2 + i * 0.9), u * (0.3 + i * 0.25), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  if (st === "notification") {
+    ctx.fillStyle = accent;
+    ctx.font = `bold ${u * 2}px monospace`;
+    ctx.textAlign = "center";
+    ctx.fillText("!", 0, -h / 2 - u * 2.5);
   }
 }
 

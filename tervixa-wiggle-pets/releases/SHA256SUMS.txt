@@ -1,0 +1,16 @@
+# SHA256SUMS — Tervixa Wiggle Pets v1.0.0
+
+Generated 2026-11-21. Verify before installing:
+
+```
+sha256sum -c SHA256SUMS.txt
+```
+
+| File | SHA256 |
+|---|---|
+| `windows/Tervixa-Wiggle-Pets_1.0.0_x64-setup.exe` | `0737723f311b368cdba3c785a3792447fe0f2308d9fc1fab7590108284912659` |
+
+Linux (`.deb`, `.AppImage`, `.rpm`) and macOS (`.dmg`) installers are built
+reproducibly by the `release.yml` GitHub Actions workflow on every tagged
+push and published to GitHub Releases — hashes for those artifacts are
+attached to the release itself.

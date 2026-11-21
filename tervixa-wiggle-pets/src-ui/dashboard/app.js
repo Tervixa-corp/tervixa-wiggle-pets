@@ -131,22 +131,46 @@ function mark() {
     c.style.borderColor = c.dataset.id === currentPet ? "#ededed" : "";
   });
 }
-// draw a mini procedural cloud preview
+// draw a mini procedural pet preview (cloud / bot / crab)
 function drawCloudPreview(cv, p) {
   const c2 = cv.getContext("2d");
   const body = p ? p.body : "#F4F6FB";
+  const dark = p ? p.shade : "#C9D2E8";
+  const eye = p ? p.eye : "#1A1D29";
   c2.fillStyle = body;
-  const puffs = [
-    [20, 38, 13], [32, 26, 15], [45, 38, 13], [32, 40, 17],
-  ];
-  for (const [x, y, r] of puffs) {
-    c2.beginPath();
-    c2.arc(x, y, r, 0, Math.PI * 2);
-    c2.fill();
+  if (p && p.style === "bot") {
+    c2.fillRect(20, 24, 24, 18);
+    c2.fillStyle = "#0A0A0A";
+    c2.fillRect(24, 28, 16, 8);
+    c2.fillStyle = eye;
+    c2.beginPath(); c2.arc(29, 32, 2, 0, 7); c2.fill();
+    c2.beginPath(); c2.arc(35, 32, 2, 0, 7); c2.fill();
+    c2.fillStyle = dark;
+    c2.fillRect(24, 44, 16, 8);
+  } else if (p && p.style === "crab") {
+    c2.fillRect(14, 28, 36, 16);
+    c2.fillStyle = dark;
+    c2.fillRect(20, 20, 3, 9);
+    c2.fillRect(41, 20, 3, 9);
+    c2.fillStyle = body;
+    c2.fillRect(8, 24, 8, 8);
+    c2.fillRect(48, 24, 8, 8);
+    c2.fillStyle = eye;
+    c2.beginPath(); c2.arc(22, 24, 2.2, 0, 7); c2.fill();
+    c2.beginPath(); c2.arc(42, 24, 2.2, 0, 7); c2.fill();
+  } else {
+    const puffs = [
+      [20, 38, 13], [32, 26, 15], [45, 38, 13], [32, 40, 17],
+    ];
+    for (const [x, y, r] of puffs) {
+      c2.beginPath();
+      c2.arc(x, y, r, 0, Math.PI * 2);
+      c2.fill();
+    }
+    c2.fillStyle = eye;
+    c2.beginPath(); c2.arc(27, 32, 2.2, 0, 7); c2.fill();
+    c2.beginPath(); c2.arc(38, 32, 2.2, 0, 7); c2.fill();
   }
-  c2.fillStyle = p ? p.eye : "#1A1D29";
-  c2.beginPath(); c2.arc(27, 32, 2.2, 0, 7); c2.fill();
-  c2.beginPath(); c2.arc(38, 32, 2.2, 0, 7); c2.fill();
 }
 
 // --------------------------------------------------------------------------
