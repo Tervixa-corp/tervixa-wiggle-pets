@@ -25,10 +25,13 @@ function coreBin() {
   const exe = process.platform === "win32" ? "wiggle-server.exe" : "wiggle-server";
   const candidates = [
     path.join(__dirname, "..", "bin", exe),
-    path.join(__dirname, "..", "src-core", "target", "release", exe),
+    path.join(__dirname, "..", "..", "bin", exe),
     path.join(__dirname, "..", "..", "src-core", "target", "release", exe),
-    path.join(process.resourcesPath || "", exe),
   ];
+  if (process.resourcesPath) {
+    candidates.push(path.join(process.resourcesPath, exe));
+    candidates.push(path.join(process.resourcesPath, "bin", exe));
+  }
   return candidates.find((c) => fs.existsSync(c));
 }
 

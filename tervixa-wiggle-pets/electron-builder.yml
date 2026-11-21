@@ -1,0 +1,41 @@
+appId: in.tervixa.wigglepets
+productName: Tervixa Wiggle Pets
+copyright: Copyright (c) 2026 Tervixa Corporation
+
+directories:
+  output: releases/windows/installer
+  buildResources: build
+
+# App payload: Electron UI + pet sprites (asar). The Rust daemon gets real
+# files via extraResources below (it must scan assets/ on disk).
+files:
+  - src-ui/**/*
+  - assets/**/*
+  - package.json
+  - "!**/*.map"
+
+extraResources:
+  - from: assets
+    to: assets
+  - from: bin
+    to: .
+  - from: LICENSE
+    to: LICENSE.txt
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: build/icon.png
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Tervixa Wiggle Pets
+  artifactName: ${productName}-Setup-${version}.${ext}
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
