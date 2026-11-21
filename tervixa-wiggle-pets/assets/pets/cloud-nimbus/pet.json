@@ -1,0 +1,89 @@
+﻿{
+    "id":  "cloud-nimbus",
+    "name":  "Nimbus",
+    "kind":  "procedural",
+    "author":  "Tervixa Corporation",
+    "license":  "MIT",
+    "source":  "original artwork (c) Tervixa Forge",
+    "style":  "nimbus",
+    "body":  "#F4F6FB",
+    "shade":  "#C9D2E8",
+    "eye":  "#1A1D29",
+    "accent":  "#7FB2FF",
+    "description":  "Classic white fluffy cloud pet with weather-reactive states",
+    "size":  [
+                 64,
+                 40
+             ],
+    "scale":  2,
+    "bubble_anchor":  [
+                          0.5,
+                          0
+                      ],
+    "ground_offset":  10,
+    "states":  {
+                   "idle":  {
+                                "kind":  "procedural",
+                                "procedural":  {
+                                                   "style":  "nimbus",
+                                                   "pose":  "idle"
+                                               }
+                            },
+                   "thinking":  {
+                                    "kind":  "procedural",
+                                    "procedural":  {
+                                                       "style":  "nimbus",
+                                                       "pose":  "thinking"
+                                                   }
+                                },
+                   "working":  {
+                                   "kind":  "procedural",
+                                   "procedural":  {
+                                                      "style":  "nimbus",
+                                                      "pose":  "working"
+                                                  }
+                               },
+                   "notification":  {
+                                        "kind":  "procedural",
+                                        "procedural":  {
+                                                           "style":  "nimbus",
+                                                           "pose":  "notification"
+                                                       }
+                                    },
+                   "attention":  {
+                                     "kind":  "procedural",
+                                     "procedural":  {
+                                                        "style":  "nimbus",
+                                                        "pose":  "attention"
+                                                    }
+                                 },
+                   "error":  {
+                                 "kind":  "procedural",
+                                 "procedural":  {
+                                                    "style":  "nimbus",
+                                                    "pose":  "error"
+                                                }
+                             },
+                   "sleeping":  {
+                                    "kind":  "procedural",
+                                    "procedural":  {
+                                                       "style":  "nimbus",
+                                                       "pose":  "sleeping"
+                                                   }
+                                },
+                   "drinking_water":  {
+                                          "kind":  "procedural",
+                                          "procedural":  {
+                                                             "style":  "nimbus",
+                                                             "pose":  "drinking_water"
+                                                         }
+                                      },
+                   "focus":  {
+                                 "kind":  "procedural",
+                                 "procedural":  {
+                                                    "style":  "nimbus",
+                                                    "pose":  "focus"
+                                                }
+                             }
+               }
+}

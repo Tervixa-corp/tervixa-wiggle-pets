@@ -1,0 +1,89 @@
+﻿{
+    "id":  "cloud-stormy",
+    "name":  "Stormy",
+    "kind":  "procedural",
+    "author":  "Tervixa Corporation",
+    "license":  "MIT",
+    "source":  "original artwork (c) Tervixa Forge",
+    "style":  "stormy",
+    "body":  "#20242E",
+    "shade":  "#12141B",
+    "eye":  "#B9C4DE",
+    "accent":  "#F5C542",
+    "description":  "Dark cyber thundercloud that flashes golden lightning on agent events",
+    "size":  [
+                 64,
+                 40
+             ],
+    "scale":  2,
+    "bubble_anchor":  [
+                          0.5,
+                          0
+                      ],
+    "ground_offset":  10,
+    "states":  {
+                   "idle":  {
+                                "kind":  "procedural",
+                                "procedural":  {
+                                                   "style":  "stormy",
+                                                   "pose":  "idle"
+                                               }
+                            },
+                   "thinking":  {
+                                    "kind":  "procedural",
+                                    "procedural":  {
+                                                       "style":  "stormy",
+                                                       "pose":  "thinking"
+                                                   }
+                                },
+                   "working":  {
+                                   "kind":  "procedural",
+                                   "procedural":  {
+                                                      "style":  "stormy",
+                                                      "pose":  "working"
+                                                  }
+                               },
+                   "notification":  {
+                                        "kind":  "procedural",
+                                        "procedural":  {
+                                                           "style":  "stormy",
+                                                           "pose":  "notification"
+                                                       }
+                                    },
+                   "attention":  {
+                                     "kind":  "procedural",
+                                     "procedural":  {
+                                                        "style":  "stormy",
+                                                        "pose":  "attention"
+                                                    }
+                                 },
+                   "error":  {
+                                 "kind":  "procedural",
+                                 "procedural":  {
+                                                    "style":  "stormy",
+                                                    "pose":  "error"
+                                                }
+                             },
+                   "sleeping":  {
+                                    "kind":  "procedural",
+                                    "procedural":  {
+                                                       "style":  "stormy",
+                                                       "pose":  "sleeping"
+                                                   }
+                                },
+                   "drinking_water":  {
+                                          "kind":  "procedural",
+                                          "procedural":  {
+                                                             "style":  "stormy",
+                                                             "pose":  "drinking_water"
+                                                         }
+                                      },
+                   "focus":  {
+                                 "kind":  "procedural",
+                                 "procedural":  {
+                                                    "style":  "stormy",
+                                                    "pose":  "focus"
+                                                }
+                             }
+               }
+}

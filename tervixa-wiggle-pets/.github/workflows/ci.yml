@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: x86_64-pc-windows-gnu
+            toolchain: stable-x86_64-pc-windows-gnu
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            toolchain: stable
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            toolchain: stable
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: src-core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-core
+      - name: Build (GNU toolchain on Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: cargo +stable-x86_64-pc-windows-gnu build --release
+        env:
+          CC: gcc
+          AR: ar
+      - name: Test
+        if: runner.os != 'Windows'
+        run: cargo test --quiet
+      - name: Test (GNU)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: cargo +stable-x86_64-pc-windows-gnu test --quiet
+        env:
+          CC: gcc
+          AR: ar
+
+  ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax-check UI sources
+        run: |
+          node --check src-ui/main.js
+          node --check src-ui/preload.js
+          node --check src-ui/overlay/renderer.js
+          node --check src-ui/dashboard/app.js
+          node --check scripts/build-core.js

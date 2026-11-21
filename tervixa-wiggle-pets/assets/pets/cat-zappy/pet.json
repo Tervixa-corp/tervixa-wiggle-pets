@@ -1,0 +1,90 @@
+﻿{
+    "id":  "cat-zappy",
+    "name":  "Zappy",
+    "kind":  "sprite",
+    "author":  "VS Code Pets contributors (see ATTRIBUTION.md)",
+    "license":  "MIT",
+    "source":  "https://github.com/tonybaloney/vscode-pets",
+    "size":  [
+                 32,
+                 32
+             ],
+    "scale":  2,
+    "bubble_anchor":  [
+                          0.5,
+                          0
+                      ],
+    "ground_offset":  6,
+    "states":  {
+                   "sleeping":  {
+                                    "kind":  "gif",
+                                    "file":  "yellow_idle_8fps.gif",
+                                    "fps":  8
+                                },
+                   "swipe":  {
+                                 "kind":  "gif",
+                                 "file":  "yellow_swipe_8fps.gif",
+                                 "fps":  8
+                             },
+                   "with_ball":  {
+                                     "kind":  "gif",
+                                     "file":  "yellow_with_ball_8fps.gif",
+                                     "fps":  8
+                                 },
+                   "working":  {
+                                   "kind":  "gif",
+                                   "file":  "yellow_walk_8fps.gif",
+                                   "fps":  8
+                               },
+                   "focus":  {
+                                 "kind":  "gif",
+                                 "file":  "yellow_idle_8fps.gif",
+                                 "fps":  8
+                             },
+                   "drinking_water":  {
+                                          "kind":  "gif",
+                                          "file":  "yellow_idle_8fps.gif",
+                                          "fps":  8
+                                      },
+                   "notification":  {
+                                        "kind":  "gif",
+                                        "file":  "yellow_swipe_8fps.gif",
+                                        "fps":  8
+                                    },
+                   "walk":  {
+                                "kind":  "gif",
+                                "file":  "yellow_walk_8fps.gif",
+                                "fps":  8
+                            },
+                   "idle":  {
+                                "kind":  "gif",
+                                "file":  "yellow_idle_8fps.gif",
+                                "fps":  8
+                            },
+                   "thinking":  {
+                                    "kind":  "gif",
+                                    "file":  "yellow_idle_8fps.gif",
+                                    "fps":  8
+                                },
+                   "run":  {
+                               "kind":  "gif",
+                               "file":  "yellow_run_8fps.gif",
+                               "fps":  8
+                           },
+                   "error":  {
+                                 "kind":  "gif",
+                                 "file":  "yellow_idle_8fps.gif",
+                                 "fps":  8
+                             },
+                   "walk_fast":  {
+                                     "kind":  "gif",
+                                     "file":  "yellow_walk_fast_8fps.gif",
+                                     "fps":  8
+                                 },
+                   "attention":  {
+                                     "kind":  "gif",
+                                     "file":  "yellow_idle_8fps.gif",
+                                     "fps":  8
+                                 }
+               }
+}

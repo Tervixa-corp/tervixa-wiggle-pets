@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: x86_64-pc-windows-gnu
+            artifact: windows
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            artifact: linux
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            artifact: macos
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-core
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build core
+        working-directory: src-core
+        shell: pwsh
+        run: |
+          if ("${{ runner.os }}" -eq "Windows") {
+            cargo +stable-x86_64-pc-windows-gnu build --release
+          } else {
+            cargo build --release --target ${{ matrix.target }}
+          }
+        env:
+          CC: gcc
+          AR: ar
+
+      - name: Stage package
+        shell: pwsh
+        run: node scripts/stage-release.js ${{ matrix.artifact }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tervixa-wiggle-pets-${{ matrix.artifact }}
+          path: releases/${{ matrix.artifact }}/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: releases/
+      - name: Checksums
+        run: |
+          cd releases
+          find . -type f \( -name "*.zip" -o -name "*.tar.gz" \) -exec sha256sum {} \; | tee SHA256SUMS
+      - uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            releases/SHA256SUMS
+            releases/**/*.zip
+            releases/**/*.tar.gz
+          generate_release_notes: true

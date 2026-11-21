@@ -1,0 +1,19 @@
+{
+  "name": "tervixa-wiggle-pets",
+  "productName": "Tervixa Wiggle Pets",
+  "version": "1.0.0",
+  "description": "TERVIXA WIGGLE PETS — deterministic desktop pet overlay that watches AI coding agents, reminds you to hydrate, and chats via lightweight local AI.",
+  "license": "MIT",
+  "author": "Tervixa Corporation <forge@tervixa.in>",
+  "homepage": "https://tervixa.in",
+  "repository": "https://github.com/tervixa/tervixa-wiggle-pets",
+  "main": "src-ui/main.js",
+  "scripts": {
+    "start": "electron src-ui/main.js",
+    "dev": "electron src-ui/main.js --dev",
+    "postinstall": "node scripts/build-core.js || exit 0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

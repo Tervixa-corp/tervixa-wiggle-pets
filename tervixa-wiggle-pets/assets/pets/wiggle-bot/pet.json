@@ -1,0 +1,89 @@
+﻿{
+    "id":  "wiggle-bot",
+    "name":  "Wiggle Bot",
+    "kind":  "procedural",
+    "author":  "Tervixa Corporation",
+    "license":  "MIT",
+    "source":  "original artwork (c) Tervixa Forge",
+    "style":  "bot",
+    "body":  "#1E63B4",
+    "shade":  "#0F3B78",
+    "eye":  "#FFFFFF",
+    "accent":  "#F5C542",
+    "description":  "Original Tervixa pixel coding bot companion",
+    "size":  [
+                 36,
+                 40
+             ],
+    "scale":  2,
+    "bubble_anchor":  [
+                          0.5,
+                          0
+                      ],
+    "ground_offset":  8,
+    "states":  {
+                   "idle":  {
+                                "kind":  "procedural",
+                                "procedural":  {
+                                                   "style":  "bot",
+                                                   "pose":  "idle"
+                                               }
+                            },
+                   "thinking":  {
+                                    "kind":  "procedural",
+                                    "procedural":  {
+                                                       "style":  "bot",
+                                                       "pose":  "thinking"
+                                                   }
+                                },
+                   "working":  {
+                                   "kind":  "procedural",
+                                   "procedural":  {
+                                                      "style":  "bot",
+                                                      "pose":  "working"
+                                                  }
+                               },
+                   "notification":  {
+                                        "kind":  "procedural",
+                                        "procedural":  {
+                                                           "style":  "bot",
+                                                           "pose":  "notification"
+                                                       }
+                                    },
+                   "attention":  {
+                                     "kind":  "procedural",
+                                     "procedural":  {
+                                                        "style":  "bot",
+                                                        "pose":  "attention"
+                                                    }
+                                 },
+                   "error":  {
+                                 "kind":  "procedural",
+                                 "procedural":  {
+                                                    "style":  "bot",
+                                                    "pose":  "error"
+                                                }
+                             },
+                   "sleeping":  {
+                                    "kind":  "procedural",
+                                    "procedural":  {
+                                                       "style":  "bot",
+                                                       "pose":  "sleeping"
+                                                   }
+                                },
+                   "drinking_water":  {
+                                          "kind":  "procedural",
+                                          "procedural":  {
+                                                             "style":  "bot",
+                                                             "pose":  "drinking_water"
+                                                         }
+                                      },
+                   "focus":  {
+                                 "kind":  "procedural",
+                                 "procedural":  {
+                                                    "style":  "bot",
+                                                    "pose":  "focus"
+                                                }
+                             }
+               }
+}

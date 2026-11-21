@@ -1,0 +1,19 @@
+# Rust
+src-core/target/
+
+# Node
+node_modules/
+src-ui/dist/
+
+# Release staging artifacts (built by CI)
+releases/*/*.exe
+releases/*/*.msi
+releases/*/*.dmg
+releases/*/*.AppImage
+releases/*/*.deb
+releases/*/SHA256SUMS
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+*.log
